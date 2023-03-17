@@ -1,0 +1,87 @@
+﻿<Application x:Class="LibraryProject.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:LibraryProject"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+			 <!--#region StuffTheme-->
+            <SolidColorBrush x:Key="Background" Color="#E1E6C6"/>
+            <SolidColorBrush x:Key="Accent" Color="#AFC073"/>
+            <SolidColorBrush x:Key="Secondary" Color="#A3AF9C"/>
+            <!--#endregion-->
+
+            <Style TargetType="Image" x:Key="mainImage">
+                <Setter Property="Height" Value="85"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseCaptured" Value="True">
+                        <Setter Property="Width" Value="80"/>
+                        <Setter Property="Height" Value="80"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            
+
+            <!--#region Button-->
+            <Style TargetType="Button" x:Key="navButton">
+                <Setter Property="Background" Value="{StaticResource Accent}"/>
+                <Setter Property="Margin" Value="3"/>
+                <Setter Property="Padding" Value="4"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <!--<Setter Property="Background" Value="Transparent"/>-->
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Foreground" Value="{StaticResource Accent}"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <TextBlock VerticalAlignment="Center" Foreground="#143212" HorizontalAlignment="Center" Text="{TemplateBinding Content}"/>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <TextBlock VerticalAlignment="Center" Foreground="Black" HorizontalAlignment="Center" Text="{TemplateBinding Content}" TextDecorations="Underline"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <!--#endregion-->
+
+            <Style TargetType="Button" x:Key="stdButton">
+                <Setter Property="Background" Value="{StaticResource Accent}"/>
+                <Setter Property="Margin" Value="3"/>
+                <Setter Property="Padding" Value="4"/>
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="Margin" Value="3"/>
+                <Setter Property="Padding" Value="3"/>
+                <Setter Property="FontSize" Value="16"/>
+
+            </Style>
+
+            <Style TargetType="ComboBox">
+                <Setter Property="Margin" Value="3"/>
+                <Setter Property="Padding" Value="3"/>
+                <Setter Property="Background" Value="{StaticResource Accent}"/>
+            </Style>
+
+            <Style TargetType="TextBox">
+                <Setter Property="Margin" Value="3"/>
+                <Setter Property="Padding" Value="3"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

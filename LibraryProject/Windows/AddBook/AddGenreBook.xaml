@@ -1,0 +1,40 @@
+﻿<Window x:Class="LibraryProject.Windows.AddBook.AddGenreBook"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LibraryProject.Windows.AddBook"
+        mc:Ignorable="d"
+        Title="Добавить жанр" Height="450" Width="500" WindowStartupLocation="CenterScreen">
+    <Grid Background="{StaticResource Background}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 10 0 10">
+            <Label Content="Поиск:" FontSize="16" FontFamily="Century Gothic"/>
+            <TextBox Width="160" Height="25" FontSize="16" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" FontFamily="Century Gothic"/>
+        </StackPanel>
+
+        <ListBox Grid.Row="1" ItemsSource="{Binding Genres}" SelectedItem="{Binding SelectedGenre}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Label Content="{Binding GenreName}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Margin="0 10 15 10">
+            <Button Command="{Binding Cancel}" Content="Отменить" Style="{StaticResource stdButton}" Width="120" Height="36" Margin="5 0 5 0"/>
+            <Button Command="{Binding Save}" Content="Выбрать" Style="{StaticResource stdButton}" Width="120" Height="36" Margin="5 0 5 0"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

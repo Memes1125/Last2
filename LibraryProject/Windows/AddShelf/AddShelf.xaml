@@ -1,0 +1,28 @@
+﻿<Window x:Class="LibraryProject.Windows.AddShelf.AddShelf"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LibraryProject.Windows.AddShelf"
+        mc:Ignorable="d"
+        Title="Добавление стеллажа" MinHeight="200" MinWidth="330" MaxHeight="200" MaxWidth="330" WindowStartupLocation="CenterScreen">
+    <Grid Background="{StaticResource Background}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="Введите номер:"/>
+            <TextBox Text="{Binding ShelfNumber}" DataContext="{Binding AddShelfVM}" Width="200"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="2" Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Margin="10 10 10 10">
+            <Button Command="{Binding Cancel}" Content="Отменить" Style="{StaticResource stdButton}" Width="120" Height="36" Margin="5 0 5 0"/>
+            <Button Command="{Binding SaveShelf}" Content="Сохранить" Style="{StaticResource stdButton}" Width="120" Height="36" Margin="5 0 5 0"/>
+        </StackPanel>
+    </Grid>
+</Window>
